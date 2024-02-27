@@ -20,11 +20,9 @@ int isPindex(int in,int nop){
 }
 int findP(int in,int *res,int n){
 	int i,chk=in,xr=0,ck=1;
-//	printf("\n for index[%d]: ",in);
 	for(i=in-1;i<n;i++){
 		if(ck){
 			if(chk!=0){
-			//	printf("%d[%d]",i,res[i]);
 				xr^=res[i];
 				chk--;
 				continue;
@@ -34,7 +32,6 @@ int findP(int in,int *res,int n){
 		chk++;
 		ck=(chk==(in))?1:0;
 	}
-	//printf("	res::%d",xr);
 	return xr;
 }
 int* sender(int *da,int nop,int n){
@@ -54,9 +51,7 @@ int* sender(int *da,int nop,int n){
 	for(i=0;i<nop+n;i++)
 		printf("%d",res[i]);
 	for(i=0;i<nop;i++){
-	//	printf("\n ::---->before %d [%d]",pin[i],res[pin[i]]);
 		res[pin[i]-1]=findP(pin[i],res,nop+n);
-		//printf("\n ::---->after %d [%d]",pin[i],res[pin[i]]);
 	}
 	printf("\n data [with parity set]:");
 	for(i=0;i<nop+n;i++)
@@ -67,11 +62,9 @@ int* sender(int *da,int nop,int n){
 
 int RfindP(int in,int *res,int n){
 	int i,chk=in,xr=0,ck=1;
-//	printf("\n for index[%d]: ",in);
 	for(i=in-1;i<n;i++){
 		if(ck){
 			if(chk!=0){
-			//	printf("%d[%d]",i,res[i]);
 				xr^=res[i];
 				chk--;
 				continue;
@@ -81,7 +74,6 @@ int RfindP(int in,int *res,int n){
 		chk++;
 		ck=(chk==(in))?1:0;
 	}
-	//printf("	res::%d",xr);
 	return xr;
 }
 
@@ -97,6 +89,8 @@ void receiver(int *da,int nop,int n){
 	}
 	
 }
+
+
 int main(){
 	int nop,data[20],n,i,res[20],*te;
 	char t[20];
