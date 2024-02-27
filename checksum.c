@@ -59,7 +59,6 @@ void receiver(int *a,int *b,int n,int *cs){
 	c=0;
 	printf("\n detection:");
 	for(i=n-1;i>=0;i--){
-		//printf("\n t :%d cs :%d c :%d",t[i],cs[i],c);
 		te=t[i];
 		t[i]=t[i]^cs[i]^c;
 		if((te&cs[i])||(te&c)||cs[i]&c){
@@ -67,7 +66,6 @@ void receiver(int *a,int *b,int n,int *cs){
 		}else{
 			c=0;
 		}
-		//printf("   res :%d",t[i]);
 	}
 	for(i=0;i<n;i++)
 		if(t[i]==0){
@@ -93,6 +91,4 @@ int main(){
 	t=sender_csum(a,b,n);
 	receiver(a,b,n,t);
 	return 0;
-	
-	
 }
